@@ -1,0 +1,46 @@
+﻿@model Consume_API.ViewModels.AddTodoViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+<main id="main" class="main">
+    <section class="section">
+        <h1>Edit</h1>
+
+        <h4>Todo</h4>
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="AddTodo">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="userId" class="control-label"></label>
+                        <input asp-for="userId" class="form-control" />
+                        <span asp-validation-for="userId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="title" class="control-label"></label>
+                        <input asp-for="title" class="form-control" />
+                        <span asp-validation-for="title" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="completed" class="control-label"></label>
+                        <input asp-for="completed" class="form-control" />
+                        <span asp-validation-for="completed" class="text-danger"></span>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <input type="submit" value="Update" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div>
+            <a asp-action="List">Back to List</a>
+        </div>
+    </section>
+</main>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
